@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -62,7 +61,128 @@
   </div>
 
   <script>
-    const questions = [/*... pytania (pozostają bez zmian) ...*/];
+    const questions = [
+      {
+        text: "Kto jest twórcą gry Brawl Stars?",
+        img: "https://example.com/brawlstars_logo.jpg",
+        answers: ["Supercell", "Riot Games", "Blizzard"],
+        correct: 0
+      },
+      {
+        text: "Który Brawler jest najstarszy?",
+        img: "https://example.com/brawler.jpg",
+        answers: ["Shelly", "Colt", "Bull"],
+        correct: 0
+      },
+      {
+        text: "Jaki tryb gry pojawił się w Brawl Stars jako pierwszy?",
+        img: "https://example.com/mode.jpg",
+        answers: ["Gem Grab", "Showdown", "Bounty"],
+        correct: 1
+      },
+      {
+        text: "Jaki Brawler posiada atak 'Dynamit'?",
+        img: "https://example.com/dynamike.jpg",
+        answers: ["Dynamike", "Barley", "Tick"],
+        correct: 0
+      },
+      {
+        text: "Który Brawler ma super umiejętność 'Booster'?",
+        img: "https://example.com/super.jpg",
+        answers: ["El Primo", "Jessie", "Poco"],
+        correct: 1
+      },
+      {
+        text: "Ile Brawlerów jest w grze Brawl Stars?",
+        img: "https://example.com/total_brawlers.jpg",
+        answers: ["20", "25", "40"],
+        correct: 2
+      },
+      {
+        text: "Jaki Brawler ma super umiejętność 'Frustration'?",
+        img: "https://example.com/frustration.jpg",
+        answers: ["Nita", "Frank", "Darryl"],
+        correct: 1
+      },
+      {
+        text: "Co jest celem w trybie 'Heist'?",
+        img: "https://example.com/heist.jpg",
+        answers: ["Zniszczyć wieżę", "Zebrać jak najwięcej klejnotów", "Ochronić swój skarb"],
+        correct: 0
+      },
+      {
+        text: "W którym sezonie pojawił się Brawler 'Lola'?",
+        img: "https://example.com/lola.jpg",
+        answers: ["Sezon 7", "Sezon 9", "Sezon 11"],
+        correct: 1
+      },
+      {
+        text: "Jakie jest imię głównego antagonistycznego Brawlera?",
+        img: "https://example.com/antagonist.jpg",
+        answers: ["Max", "Mister P", "Colette"],
+        correct: 2
+      },
+      {
+        text: "Jakie jest znaczenie pojęcia 'Brawler'?",
+        img: "https://example.com/meaning.jpg",
+        answers: ["Boży wojownik", "Bójka", "Zbieracz"],
+        correct: 1
+      },
+      {
+        text: "Kiedy Brawl Stars zostało wydane na platformy mobilne?",
+        img: "https://example.com/release.jpg",
+        answers: ["2016", "2018", "2020"],
+        correct: 1
+      },
+      {
+        text: "Jaki Brawler posiada umiejętność 'Czarny Bolec'?",
+        img: "https://example.com/black.jpg",
+        answers: ["Bibi", "Crows", "Rico"],
+        correct: 1
+      },
+      {
+        text: "Jaki Brawler pochodzi z 'Górskich Wąwozów'?",
+        img: "https://example.com/mountains.jpg",
+        answers: ["Darryl", "Shelly", "Penny"],
+        correct: 0
+      },
+      {
+        text: "Który Brawler jest bezpłatny na początek gry?",
+        img: "https://example.com/free_brawler.jpg",
+        answers: ["Barley", "Colt", "Spike"],
+        correct: 1
+      },
+      {
+        text: "Jakie jest znaczenie 'Brawler'?",
+        img: "https://example.com/meaning.jpg",
+        answers: ["Wojownik", "Bojownik", "Pożeracz"],
+        correct: 1
+      },
+      {
+        text: "Jaką super umiejętność posiada 'Gene'?",
+        img: "https://example.com/gene.jpg",
+        answers: ["Teleportacja", "Wysysanie życia", "Pożeranie dusz"],
+        correct: 1
+      },
+      {
+        text: "Jaki jest maksymalny poziom w grze?",
+        img: "https://example.com/max_level.jpg",
+        answers: ["10", "15", "20"],
+        correct: 1
+      },
+      {
+        text: "Który tryb gry został wprowadzony w aktualizacji 2021?",
+        img: "https://example.com/new_mode.jpg",
+        answers: ["Mega Box", "Brawl Ball", "Power League"],
+        correct: 2
+      },
+      {
+        text: "Jaką umiejętność posiada Brawler 'Mortis'?",
+        img: "https://example.com/mortis.jpg",
+        answers: ["Odskok", "Bieganie przez przeszkody", "Teleportacja"],
+        correct: 0
+      }
+    ];
 
     const quiz = document.getElementById("quiz");
 
