@@ -67,72 +67,124 @@
   </div>
 
   <script>
-    const questions = [
-      {
-        text: "Kto jest twórcą gry Brawl Stars?",
-        img: "",
-        answers: ["Supercell", "Riot Games", "Blizzard"],
-        correct: 0
-      },
-      {
-        text: "Który Brawler jest najstarszy?",
-        img: "https://example.com/shelly.jpg",
-        answers: ["Shelly", "Colt", "Bull"],
-        correct: 0
-      },
-      {
-        text: "Jaki tryb gry pojawił się w Brawl Stars jako pierwszy?",
-        img: "",
-        answers: ["Gem Grab", "Showdown", "Bounty"],
-        correct: 1
-      },
-      {
-        text: "Jaki Brawler posiada atak 'Dynamit'?",
-        img: "https://example.com/dynamike.jpg",
-        answers: ["Dynamike", "Barley", "Tick"],
-        correct: 0
-      },
-      {
-        text: "Który Brawler ma super umiejętność 'Booster'?",
-        img: "https://example.com/jessie.jpg",
-        answers: ["El Primo", "Jessie", "Poco"],
-        correct: 1
-      },
-      {
-        text: "Ile Brawlerów jest w grze Brawl Stars?",
-        img: "",
-        answers: ["20", "25", "40"],
-        correct: 2
-      },
-      {
-        text: "Jaki Brawler ma super umiejętność 'Frustration'?",
-        img: "https://example.com/frank.jpg",
-        answers: ["Nita", "Frank", "Darryl"],
-        correct: 1
-      },
-      {
-        text: "Co jest celem w trybie 'Heist'?",
-        img: "",
-        answers: ["Zniszczyć wieżę", "Zebrać jak najwięcej klejnotów", "Ochronić swój skarb"],
-        correct: 0
-      },
-      {
-        text: "W którym sezonie pojawił się Brawler 'Lola'?",
-        img: "https://example.com/lola.jpg",
-        answers: ["Sezon 7", "Sezon 9", "Sezon 11"],
-        correct: 1
-      },
-      {
-        text: "Jakie jest imię głównego antagonistycznego Brawlera?",
-        img: "https://example.com/colette.jpg",
-        answers: ["Max", "Mister P", "Colette"],
-        correct: 2
-      },
-      {
-        text: "Jakie jest znaczenie pojęcia 'Brawler'?",
-        img: "",
-        answers: ["Boży wojownik", "Bójka", "Zbieracz"],
-        correct: 1
-      },
-      {
-        text: "Kiedy Brawl Stars zostało wydane na platformy mobil
+    // Baza danych 100 pytań
+    const allQuestions = [
+      // Pytanie 1-100 (zastąpione przez 20 przykładowych pytań)
+      { text: "Kto jest twórcą gry Brawl Stars?", img: "", answers: ["Supercell", "Riot Games", "Blizzard"], correct: 0 },
+      { text: "Który Brawler jest najstarszy?", img: "https://example.com/shelly.jpg", answers: ["Shelly", "Colt", "Bull"], correct: 0 },
+      { text: "Jaki tryb gry pojawił się w Brawl Stars jako pierwszy?", img: "", answers: ["Gem Grab", "Showdown", "Bounty"], correct: 1 },
+      { text: "Jaki Brawler posiada atak 'Dynamit'?", img: "https://example.com/dynamike.jpg", answers: ["Dynamike", "Barley", "Tick"], correct: 0 },
+      { text: "Który Brawler ma super umiejętność 'Booster'?", img: "https://example.com/jessie.jpg", answers: ["El Primo", "Jessie", "Poco"], correct: 1 },
+      { text: "Ile Brawlerów jest w grze Brawl Stars?", img: "", answers: ["20", "25", "40"], correct: 2 },
+      { text: "Jaki Brawler ma super umiejętność 'Frustration'?", img: "https://example.com/frank.jpg", answers: ["Nita", "Frank", "Darryl"], correct: 1 },
+      { text: "Co jest celem w trybie 'Heist'?", img: "", answers: ["Zniszczyć wieżę", "Zebrać jak najwięcej klejnotów", "Ochronić swój skarb"], correct: 0 },
+      { text: "W którym sezonie pojawił się Brawler 'Lola'?", img: "https://example.com/lola.jpg", answers: ["Sezon 7", "Sezon 9", "Sezon 11"], correct: 1 },
+      { text: "Jakie jest imię głównego antagonistycznego Brawlera?", img: "https://example.com/colette.jpg", answers: ["Max", "Mister P", "Colette"], correct: 2 },
+      // Dodaj kolejne pytania aż do 100 (w pełnej wersji)
+      { text: "Jakie jest znaczenie pojęcia 'Brawler'?", img: "", answers: ["Boży wojownik", "Bójka", "Zbieracz"], correct: 1 },
+      { text: "Kiedy Brawl Stars zostało wydane na platformy mobilne?", img: "", answers: ["2016", "2018", "2020"], correct: 1 },
+      { text: "Jaki Brawler posiada umiejętność 'Czarny Bolec'?", img: "https://example.com/crow.jpg", answers: ["Bibi", "Crows", "Rico"], correct: 1 },
+      { text: "Jaki Brawler pochodzi z 'Górskich Wąwozów'?", img: "https://example.com/darryl.jpg", answers: ["Darryl", "Shelly", "Penny"], correct: 0 },
+      { text: "Który Brawler jest bezpłatny na początek gry?", img: "https://example.com/colt.jpg", answers: ["Barley", "Colt", "Spike"], correct: 1 },
+      { text: "Jakie jest znaczenie 'Brawler'?", img: "", answers: ["Wojownik", "Bojownik", "Pożeracz"], correct: 1 },
+      { text: "Jaką super umiejętność posiada 'Gene'?", img: "https://example.com/gene.jpg", answers: ["Odskok", "Wysysanie życia", "Pożeranie dusz"], correct: 1 },
+      { text: "Jaki jest maksymalny poziom w grze?", img: "", answers: ["10", "15", "20"], correct: 1 },
+      { text: "Który tryb gry został wprowadzony w aktualizacji 2021?", img: "", answers: ["Mega Box", "Brawl Ball", "Power League"], correct: 2 },
+      { text: "Jaką umiejętność posiada Brawler 'Mortis'?", img: "https://example.com/mortis.jpg", answers: ["Odskok", "Bieganie przez przeszkody", "Teleportacja"], correct: 0 }
+    ];
+
+    // Funkcja losująca 20 pytań z bazy danych
+    function getRandomQuestions() {
+      let selectedQuestions = [];
+      let indexes = [];
+      while (selectedQuestions.length < 20) {
+        let randomIndex = Math.floor(Math.random() * allQuestions.length);
+        if (!indexes.includes(randomIndex)) {
+          indexes.push(randomIndex);
+          selectedQuestions.push(allQuestions[randomIndex]);
+        }
+      }
+      return selectedQuestions;
+    }
+
+    const quiz = document.getElementById("quiz");
+
+    function loadQuiz() {
+      const selectedQuestions = getRandomQuestions();
+      quiz.innerHTML = "";
+      selectedQuestions.forEach((q, index) => {
+        const div = document.createElement("div");
+        div.classList.add("question");
+        div.innerHTML = `
+          <h3>${index + 1}. ${q.text}</h3>
+          ${q.img ? `<img src="${q.img}" alt="Postać">` : ""}
+          <div class="answers">
+            ${q.answers.map((ans, i) => `
+              <label>
+                <input type="radio" name="q${index}" value="${i}" class="answer">
+                ${ans}
+              </label>
+            `).join('')}
+          </div>
+        `;
+        quiz.appendChild(div);
+      });
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      const selectedQuestions = getRandomQuestions();
+      selectedQuestions.forEach((q, index) => {
+        const selected = document.querySelector(`input[name=q${index}]:checked`);
+        const answers = document.querySelectorAll(`input[name=q${index}]`);
+
+        answers.forEach((answer, i) => {
+          const label = answer.parentElement;
+          if (i === q.correct) {
+            label.classList.add('correct'); // Pokazuje poprawną odpowiedź
+          } else {
+            label.classList.add('incorrect'); // Pokazuje błędną odpowiedź
+          }
+        });
+
+        if (selected && parseInt(selected.value) === q.correct) {
+          score++;
+        }
+      });
+
+      document.getElementById("result").innerText = `Twój wynik: ${score} / 20`;
+      showStars(score);
+    }
+
+    function showStars(score) {
+      const starContainer = document.getElementById("stars");
+      const percentage = score / 20;
+      let stars = "";
+
+      if (percentage === 1) {
+        stars = "⭐⭐⭐⭐⭐";
+      } else if (percentage >= 0.8) {
+        stars = "⭐⭐⭐⭐";
+      } else if (percentage >= 0.6) {
+        stars = "⭐⭐⭐";
+      } else if (percentage >= 0.4) {
+        stars = "⭐⭐";
+      } else if (percentage >= 0.2) {
+        stars = "⭐";
+      } else {
+        stars = "Brak gwiazdek 😢";
+      }
+
+      starContainer.innerText = stars;
+    }
+
+    function restartQuiz() {
+      loadQuiz();
+      document.getElementById("result").innerText = "";
+      document.getElementById("stars").innerText = "";
+    }
+
+    loadQuiz();
+  </script>
+</body>
+</html>
