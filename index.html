@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Brawl Stars</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+    .quiz-container {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question img {
+      max-width: 200px;
+      display: block;
+      margin-top: 10px;
+    }
+    .answers label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #0099ff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #result {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .stars {
+      color: gold;
+      font-size: 24px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container" id="quiz"></div>
+  <div style="text-align:center">
+    <button onclick="submitQuiz()">Sprawdź wynik</button>
+    <div id="result"></div>
+    <div class="stars" id="stars"></div>
+    <button onclick="restartQuiz()">Zagraj ponownie</button>
+  </div>
+
+  <script>
+    const questions = [/*... pytania (pozostają bez zmian) ...*/];
+
+    const quiz = document.getElementById("quiz");
+
+    function loadQuiz() {
+      quiz.innerHTML = "";
+      questions.forEach((q, index) => {
+        const div = document.createElement("div");
+        div.classList.add("question");
+        div.innerHTML = `
+          <h3>${index + 1}. ${q.text}</h3>
+          <img src="${q.img}" alt="">
+          <div class="answers">
+            ${q.answers.map((ans, i) => `
+              <label><input type="radio" name="q${index}" value="${i}"> ${ans}</label>
+            `).join('')}
+          </div>
+        `;
+        quiz.appendChild(div);
+      });
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      questions.forEach((q, index) => {
+        const selected = document.querySelector(`input[name=q${index}]:checked`);
+        if (selected && parseInt(selected.value) === q.correct) {
+          score++;
+        }
+      });
+      document.getElementById("result").innerText = `Twój wynik: ${score} / ${questions.length}`;
+      showStars(score);
+    }
+
+    function showStars(score) {
+      const starContainer = document.getElementById("stars");
+      const percentage = score / questions.length;
+      let stars = "";
+
+      if (percentage === 1) {
+        stars = "⭐⭐⭐⭐⭐";
+      } else if (percentage >= 0.8) {
+        stars = "⭐⭐⭐⭐";
+      } else if (percentage >= 0.6) {
+        stars = "⭐⭐⭐";
+      } else if (percentage >= 0.4) {
+        stars = "⭐⭐";
+      } else if (percentage >= 0.2) {
+        stars = "⭐";
+      } else {
+        stars = "Brak gwiazdek 😢";
+      }
+
+      starContainer.innerText = stars;
+    }
+
+    function restartQuiz() {
+      loadQuiz();
+      document.getElementById("result").innerText = "";
+      document.getElementById("stars").innerText = "";
+    }
+
+    loadQuiz();
+  </script>
+</body>
+</html>
